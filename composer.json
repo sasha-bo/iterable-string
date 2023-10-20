@@ -1,0 +1,20 @@
+{
+    "name": "sashabo/iterable-string",
+    "version": "1.0",
+    "description": "IterableString and MultibyteIterableString allow to iterate string characters in foreach without converting the string into array.",
+    "type": "library",
+    "license": "GPL-3.0-only",
+    "autoload": {
+        "psr-4": {
+            "SashaBo\\IterableString\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sasha Bo"
+        }
+    ],
+    "require": {
+        "php": ">=8.1"
+    }
+}

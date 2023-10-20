@@ -9,8 +9,8 @@ class MultibyteIterableString extends IterableString
         $this->length = mb_strlen($this->source);
     }
 
-    public function current(int $length = 1): string
+    public function get(int $position, int $length = 1): string
     {
-        return mb_substr($this->source, $this->position, $length);
+        return mb_substr($this->source, $position, $length);
     }
 }

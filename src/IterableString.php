@@ -18,14 +18,29 @@ class IterableString implements \Iterator
         $this->length = strlen($this->source);
     }
 
+    public function length(): int
+    {
+        return $this->length;
+    }
+
     public function rewind(): void
     {
         $this->position = 0;
     }
 
+    public function set(int $position): void
+    {
+        $this->position = $position;
+    }
+
+    public function get(int $position, int $length = 1): string
+    {
+        return substr($this->source, $position, $length);
+    }
+
     public function current(int $length = 1): string
     {
-        return substr($this->source, $this->position, $length);
+        return $this->get($this->position, $length);
     }
 
     public function next(int $steps = 1): void
@@ -45,11 +60,16 @@ class IterableString implements \Iterator
 
     public function valid(): bool
     {
-        return $this->position >= 0 && $this->position < $this->length;
+        return $this->check($this->position);
+    }
+
+    public function check(int $position): bool
+    {
+        return $position >= 0 && $position < $this->length;
     }
 
     public function isLast(): bool
     {
-        return $this->position >= $this->length - 1;
+        return $this->position == $this->length - 1;
     }
 }

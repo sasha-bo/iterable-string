@@ -62,10 +62,10 @@ final class IterableStringTest extends TestCase
     public function testMovePositionCorrectly(): void
     {
         $iterable = new IterableString(self::STRING);
-        $iterable->next(3);
+        $iterable->next(15);
         $iterable->previous();
-        $this->assertEquals(2, $iterable->key());
-        $this->assertEquals(substr(self::STRING, 2, 1), $iterable->current());
+        $this->assertEquals(14, $iterable->key());
+        $this->assertEquals(substr(self::STRING, 14, 1), $iterable->current());
         $iterable->rewind();
         $this->assertEquals(0, $iterable->key());
         $this->assertEquals(substr(self::STRING, 0, 1), $iterable->current());
@@ -74,10 +74,10 @@ final class IterableStringTest extends TestCase
     public function testMoveMultibytePositionCorrectly(): void
     {
         $iterable = new MultibyteIterableString(self::STRING);
-        $iterable->next(3);
+        $iterable->next(15);
         $iterable->previous();
-        $this->assertEquals(2, $iterable->key());
-        $this->assertEquals(mb_substr(self::STRING, 2, 1), $iterable->current());
+        $this->assertEquals(14, $iterable->key());
+        $this->assertEquals(mb_substr(self::STRING, 14, 1), $iterable->current());
         $iterable->rewind();
         $this->assertEquals(0, $iterable->key());
         $this->assertEquals(mb_substr(self::STRING, 0, 1), $iterable->current());
